@@ -1,44 +1,56 @@
 function convertCelsiusToFahrenheit() {
 	let num1 = parseFloat(prompt("Enter number of Celsius"));
-	let temp_F = (num1 * 1.8 + 32).toFixed(2);
-	alert(`${num1}°C converted into ${temp_F}°F`);
+	if (isNaN(num1)){
+		alert("Invalid input. Please input a number.")
+	} else {
+		let temp_F = (num1 * 1.8 + 32).toFixed(2);
+		alert(`${num1}°C converted into ${temp_F}°F`);
+	}
 }
 
 function ComputeAcceleration() {
 	let iv = parseFloat(prompt("Enter Initial Velocity in m/s or meter per second"));
 	let fv = parseFloat(prompt("Enter Final Velocity in m/s or meter per second"));
 	let ct = parseFloat(prompt("Enter Change in time in seconds"))
-
-	let acceleration = ((fv - iv) / ct).toFixed(2);
-	alert(`Acceleration is ${acceleration} meters every second.`);
+	
+	if (isNaN(iv) || isNaN(fv) || isNaN(ct)){
+		alert("Invalid input. Please input a number.")
+	} else {
+		let acceleration = ((fv - iv) / ct).toFixed(2);
+		alert(`Acceleration is ${acceleration} meters every second.`);
+	}
 }
 
 function BasicMathOps() {
 	let num1 = parseFloat(prompt("Enter First Number"));
 	let num2 = parseFloat(prompt("Enter Second Number"));
-	let operator = prompt("Choose operator:\nM- Multiplication\nD- Division\nA- Addition\nS- Subtraction").toUpperCase();
-	switch(operator){
-		case 'M':
-			result = num1 * num2;
-			break;
-		case 'D':
-			if (num2==0){
-				result = "Second Number must not zero or less than 0";
-			}else {
-				result = num1/num2;
-			}
-			break;
-		case 'A':
-			result = num1 + num2;
-			break;
-		case 'S':
-			result = num1 - num2;
-			break;
-		default:
-			result = "Invalid operator";
-			break;
+	if (isNaN(num1) || isNaN(num2)){
+		alert("Invalid input. Please enter a number.")
+	} else {
+		let operator = prompt("Choose operator:\nM- Multiplication\nD- Division\nA- Addition\nS- Subtraction").toUpperCase();
+		switch(operator){
+			case 'M':
+				result = num1 * num2;
+				break;
+			case 'D':
+				if (num2==0){
+					result = "Second Number must not zero or less than 0";
+				}else {
+					result = num1/num2;
+				}
+				break;
+			case 'A':
+				result = num1 + num2;
+				break;
+			case 'S':
+				result = num1 - num2;
+				break;
+			default:
+				result = "Invalid operator";
+				break;
+		}
+		alert(`Result: ${result}`);
 	}
-	alert(`Result: ${result}`);
 }
 
 
